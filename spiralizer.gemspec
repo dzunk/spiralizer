@@ -7,11 +7,11 @@ Gem::Specification.new do |spec|
   spec.name          = "spiralizer"
   spec.version       = Spiralizer::VERSION
   spec.authors       = ["Matt Duszynski"]
-  spec.email         = ["matt@etszone.com"]
+  spec.email         = ["matt@duszynski.org"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = "Convert a matrix or two-dimensional array into a spiralized string."
+  spec.description   = spec.summary
+  spec.homepage      = "https://github.com/dzunk/spiralizer"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
