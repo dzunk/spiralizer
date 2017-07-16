@@ -43,7 +43,8 @@ Spiralizer.spiralize(foo) # also "a b d c"
 Or, for greater flexibility, instantiate your own Spiralizer:
 
 ```ruby
-Spiralizer.new(strict: false).spiralize(['A', 'b']) # "a b"
+foo = [['A', 'b'], ['C', 'D']]
+Spiralizer.new(foo, strict: false).spiralize # "a b d c"
 ```
 
 ## Advanced usage
@@ -76,7 +77,7 @@ target regardless of element type.
 
 ```ruby
 xyzzy = [[1, 2], [3, 4]]
-Spiralizer.new(xyzzy).spiralize! # UnacceptableElementError
+Spiralizer.new(xyzzy).spiralize! # NumericElementError
 Spiralizer.new(xyzzy, strict: false).spiralize! # "1 2 4 3"
 ```
 
