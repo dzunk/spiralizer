@@ -10,14 +10,14 @@ module Spiralizer
   end
 
   def self.spiralize target
-    new(target).spiralize
+    new(data: target).spiralize
   end
 
   def self.spiralize! target
-    new(target).spiralize!
+    new(data: target).spiralize!
   end
 
-  def self.new(target, strict: true)
-    Base.new(target: target, strict: strict)
+  def self.new(data:, strict: true)
+    Base.new(data: data, strict: strict)
   end
 end

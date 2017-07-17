@@ -1,8 +1,8 @@
 module Spiralizer
   class Base
 
-    def initialize(target:, strict: true)
       @target = target.dup.to_a
+    def initialize(data:, strict: true)
       @strict = strict
     end
 
