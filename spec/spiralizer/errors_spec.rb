@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'spiralizer'
 
 RSpec.describe 'Errors' do
 

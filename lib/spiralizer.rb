@@ -6,13 +6,11 @@ require 'spiralizer/version'
 
 module Spiralizer
   def self.call target
-    new(target).spiralize!
+    self.spiralize! target
   end
 
   def self.spiralize target
     new(target).spiralize
-  rescue
-    false
   end
 
   def self.spiralize! target
