@@ -25,7 +25,7 @@ RSpec.describe Spiralizer do
       expect(Spiralizer.spiralize!(sample_array)).to eq Spiralizer.call(sample_array)
     end
     it 'raises errors when appropriate' do
-      expect{ Spiralizer.spiralize!([]) }.to raise_error Spiralizer::InvalidTargetError
+      expect{ Spiralizer.spiralize!([]) }.to raise_error Spiralizer::SpiralizerError
     end
   end
 
@@ -44,11 +44,11 @@ RSpec.describe Spiralizer do
       expect{ Spiralizer.new }.to raise_error ArgumentError
     end
     it 'accepts optional parameters' do
-      foo = Spiralizer.new(sample_array, strict: false)
+      foo = Spiralizer.new(data: sample_array, strict: false)
       expect(foo).not_to be_strict
     end
     it 'returns a Spiralizer::Base instance' do
-      expect(Spiralizer.new(sample_array)).to be_a Spiralizer::Base
+      expect(Spiralizer.new(data: sample_array)).to be_a Spiralizer::Base
     end
   end
 
