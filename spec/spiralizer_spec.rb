@@ -13,7 +13,7 @@ RSpec.describe Spiralizer do
 
   describe '.call' do
     it 'requires a target' do
-      expect{ Spiralizer.call(nil) }.to raise_error ArgumentError
+      expect{ Spiralizer.call }.to raise_error ArgumentError
     end
     it 'returns a spiralized string' do
       expect(Spiralizer.call(sample_array)).to eq sample_string
@@ -25,7 +25,7 @@ RSpec.describe Spiralizer do
       expect(Spiralizer.spiralize!(sample_array)).to eq Spiralizer.call(sample_array)
     end
     it 'raises errors when appropriate' do
-      expect{ Spiralizer.spiralize!([]) }.to raise_error InvalidTargetError
+      expect{ Spiralizer.spiralize!([]) }.to raise_error Spiralizer::InvalidTargetError
     end
   end
 
@@ -41,7 +41,7 @@ RSpec.describe Spiralizer do
 
   describe '.new' do
     it 'requires a target' do
-      expect{ Spiralizer.new(nil) }.to raise_error ArgumentError
+      expect{ Spiralizer.new }.to raise_error ArgumentError
     end
     it 'accepts optional parameters' do
       foo = Spiralizer.new(sample_array, strict: false)
