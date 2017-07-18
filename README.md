@@ -44,7 +44,7 @@ Or, for greater flexibility, instantiate your own Spiralizer:
 
 ```ruby
 foo = [['A', 'b'], ['C', 'D']]
-Spiralizer.new(foo, strict: false).spiralize # "a b d c"
+Spiralizer.new(data: foo, strict: false).spiralize # "a b d c"
 ```
 
 ## Advanced usage
@@ -57,14 +57,14 @@ unacceptable target, while the non-bang method will return false on error.
 
 ```ruby
 foo = [['A', 'B'], ['c', 'd']]
-Spiralizer.new(foo).spiralize! # LowercaseElementError
-Spiralizer.new(foo).spiralize  # false
+Spiralizer.new(data: foo).spiralize! # LowercaseElementError
+Spiralizer.new(data: foo).spiralize  # false
 
 bar = [['A', 'B'], [3, 4]]
-Spiralizer.new(bar).spiralize! # NumericElementError
+Spiralizer.new(data: bar).spiralize! # NumericElementError
 
 baz = [['A', 'B'], ['&', 'D']]
-Spiralizer.new(baz).spiralize! # InvalidElementError
+Spiralizer.new(data: baz).spiralize! # InvalidElementError
 ```
 
 ### Promiscuous mode
@@ -77,8 +77,8 @@ target regardless of element type.
 
 ```ruby
 xyzzy = [[1, 2], [3, 4]]
-Spiralizer.new(xyzzy).spiralize! # NumericElementError
-Spiralizer.new(xyzzy, strict: false).spiralize! # "1 2 4 3"
+Spiralizer.new(data: xyzzy).spiralize! # NumericElementError
+Spiralizer.new(data: xyzzy, strict: false).spiralize! # "1 2 4 3"
 ```
 
 ## Development
