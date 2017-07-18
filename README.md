@@ -56,7 +56,7 @@ handling behavior. The bang method will raise an exception when provided an
 unacceptable target, while the non-bang method will return false on error.
 
 ```ruby
-foo = [['A', 'B'], ['c, 'd']]
+foo = [['A', 'B'], ['c', 'd']]
 Spiralizer.new(foo).spiralize! # LowercaseElementError
 Spiralizer.new(foo).spiralize  # false
 
