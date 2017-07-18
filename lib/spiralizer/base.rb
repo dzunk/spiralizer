@@ -12,9 +12,10 @@ module Spiralizer
 
     def spiralize!
       spiral.valid!
-      output = spiral.to_s
-      validate_output(output) if strict?
-      output.downcase
+      result = Spiralizer::Result.new(spiral.to_s)
+      if result.valid!
+        result.value
+      end
     end
 
     def spiralize
@@ -25,11 +26,6 @@ module Spiralizer
 
     private
 
-    def validate_output(output_string)
-      raise Spiralizer::NumericElementError if output_string.match? /[0-9]/
-      raise Spiralizer::LowercaseElementError if output_string.match? /[a-z]/
-      raise Spiralizer::InvalidElementError unless output_string.downcase.match? /^[a-z\s]*$/
-    end
     attr_reader :spiral
     attr_reader :strict
 

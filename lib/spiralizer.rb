@@ -2,6 +2,7 @@ require 'matrix'
 
 require 'spiralizer/base'
 require 'spiralizer/spiral'
+require 'spiralizer/result'
 require 'spiralizer/errors'
 require 'spiralizer/version'
 
