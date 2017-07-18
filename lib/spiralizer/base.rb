@@ -25,19 +25,13 @@ module Spiralizer
 
     private
 
-    def spiral
-      @spiral
-    end
-
-    def strict
-      @strict
-    end
-
     def validate_output(output_string)
       raise Spiralizer::NumericElementError if output_string.match? /[0-9]/
       raise Spiralizer::LowercaseElementError if output_string.match? /[a-z]/
       raise Spiralizer::InvalidElementError unless output_string.downcase.match? /^[a-z\s]*$/
     end
+    attr_reader :spiral
+    attr_reader :strict
 
   end
 end

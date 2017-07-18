@@ -29,9 +29,7 @@ module Spiralizer
 
     private
 
-    def data
-      @data
-    end
+    attr_reader :data
 
     def valid_data_type?
       data.is_a?(Matrix) || data.is_a?(Array)
