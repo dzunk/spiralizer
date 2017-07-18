@@ -13,9 +13,8 @@ module Spiralizer
     def spiralize!
       spiral.valid!
       result = Spiralizer::Result.new(spiral.to_s)
-      if result.valid!
-        result.value
-      end
+      return result.value unless strict?
+      result.value if result.valid!
     end
 
     def spiralize

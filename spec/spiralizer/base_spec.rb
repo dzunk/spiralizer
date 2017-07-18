@@ -45,6 +45,22 @@ RSpec.describe Spiralizer::Base do
       expect(s.new(data: rick).spiralize!).to eq morty
       expect(s.new(data: banjo).spiralize!).to eq kazooie
     end
+    context 'when strict' do
+      it 'only spiralizes uppercase elements' do
+        loosey = [['A', 'B'], [3, '&']]
+        expect{
+          Spiralizer::Base.new(data: loosey, strict: true).spiralize!
+        }.to raise_error Spiralizer::SpiralizerError
+      end
+    end
+    context 'when not strict' do
+      it 'spiralizes any characters' do
+        loosey = [['A', 'B'], [3, '&']]
+        expect{
+          Spiralizer::Base.new(data: loosey, strict: false).spiralize!
+        }.not_to raise_error
+      end
+    end
   end
 
   describe '#spiralize' do
