@@ -20,6 +20,6 @@ module Spiralizer
   end
 
   def self.new(data:, strict: true)
-    Base.new(data: data, strict: strict)
+    Base.new(spiral: Spiral.new(data), strict: strict)
   end
 end

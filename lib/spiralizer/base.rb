@@ -1,8 +1,8 @@
 module Spiralizer
   class Base
 
-    def initialize(data:, strict: true)
-      @spiral = Spiralizer::Spiral.new(data)
+    def initialize(spiral:, strict: true)
+      @spiral = spiral
       @strict = strict
     end
 
