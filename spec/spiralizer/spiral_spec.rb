@@ -18,8 +18,11 @@ RSpec.describe Spiralizer::Spiral do
   describe '#valid?' do
     context 'without an Array or Matrix as data' do
       it 'is invalid' do
-        good_data = [['A', 'B'], ['C', 'D']]
-        expect(Spiralizer::Spiral.new(good_data)).to be_valid
+        good_array  = [['A', 'B'], ['C', 'D']]
+        good_matrix = Matrix[*good_array]
+
+        expect(Spiralizer::Spiral.new(good_array)).to be_valid
+        expect(Spiralizer::Spiral.new(good_matrix)).to be_valid
         expect(Spiralizer::Spiral.new('foo')).not_to be_valid
       end
     end
