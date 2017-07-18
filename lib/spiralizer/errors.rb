@@ -3,7 +3,7 @@ module Spiralizer
     class SpiralizerError < ::StandardError
     end
 
-    class InvalidTargetError < SpiralizerError
+    class InvalidSpiralError < SpiralizerError
     end
 
     class InvalidElementError < SpiralizerError

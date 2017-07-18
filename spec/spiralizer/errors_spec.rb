@@ -4,22 +4,22 @@ RSpec.describe 'Errors' do
 
   describe Spiralizer::SpiralizerError do
     it 'is a parent class for all errors' do
-      expect(Spiralizer::InvalidTargetError.new).to be_a Spiralizer::SpiralizerError
+      expect(Spiralizer::InvalidSpiralError.new).to be_a Spiralizer::SpiralizerError
       expect(Spiralizer::InvalidElementError.new).to be_a Spiralizer::SpiralizerError
       expect(Spiralizer::NumericElementError.new).to be_a Spiralizer::SpiralizerError
       expect(Spiralizer::LowercaseElementError.new).to be_a Spiralizer::SpiralizerError
     end
   end
 
-  describe Spiralizer::InvalidTargetError do
-    it 'is raised when the provided data isn\'t a matrix or two-dimensional array' do
+  describe Spiralizer::InvalidSpiralError do
+    it 'is raised when the provided data isn\'t a valid Spiral' do
       good_array  = [['A', 'B'], ['C', 'D']]
       good_matrix = Matrix[*good_array]
       bad_data    = 'a string (or any other data type)'
 
       expect{ Spiralizer.call(good_array)  }.not_to raise_error
       expect{ Spiralizer.call(good_matrix) }.not_to raise_error
-      expect{ Spiralizer.call(bad_data)    }.to raise_error Spiralizer::InvalidTargetError
+      expect{ Spiralizer.call(bad_data)    }.to raise_error Spiralizer::InvalidSpiralError
     end
   end
 

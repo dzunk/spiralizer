@@ -1,8 +1,8 @@
 module Spiralizer
   class Base
 
-      @target = target.dup.to_a
     def initialize(data:, strict: true)
+      @spiral = Spiralizer::Spiral.new(data)
       @strict = strict
     end
 
@@ -19,8 +19,8 @@ module Spiralizer
     end
 
     def spiralize!
-      validate_target
-      output = target_to_string(target)
+      spiral.valid!
+      output = spiral.to_s
       validate_output(output) if strict?
       output.downcase
     end
@@ -33,8 +33,8 @@ module Spiralizer
 
     private
 
-    def validate_target
-      raise Spiralizer::InvalidTargetError if target == []
+    def spiral
+      @spiral
     end
 
     def target_to_string(spiral)
