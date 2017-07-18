@@ -6,16 +6,8 @@ module Spiralizer
       @strict = strict
     end
 
-    def strict
-      @strict
-    end
-
     def strict?
-      !!@strict
-    end
-
-    def target
-      @target
+      !!strict
     end
 
     def spiralize!
@@ -37,18 +29,14 @@ module Spiralizer
       @spiral
     end
 
-    def target_to_string(spiral)
-      string = ''
-      while spiral.length > 0 do
-        string << spiral.shift.join(' ') << ' '
-        spiral = spiral.transpose.reverse # rotate 90 degrees counterclockwise
-      end
-      string[0..-2] # remove the trailing space character
+    def strict
+      @strict
     end
 
     def validate_output(output_string)
       raise Spiralizer::NumericElementError if output_string.match? /[0-9]/
       raise Spiralizer::LowercaseElementError if output_string.match? /[a-z]/
+      raise Spiralizer::InvalidElementError unless output_string.downcase.match? /^[a-z\s]*$/
     end
 
   end
